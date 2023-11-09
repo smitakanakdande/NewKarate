@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/java\/api[1:4]","start":1699517722964,"end":1699517727318,"title":"src\/test\/java\/api[1:4] 13:45:22.964-13:45:27.318 Get list of users"},{"id":2,"group":1,"content":"src\/test\/java\/api[2:9]","start":1699517727327,"end":1699517727645,"title":"src\/test\/java\/api[2:9] 13:45:27.327-13:45:27.645 Create a new user","className":"failed"},{"id":3,"group":1,"content":"src\/test\/java\/api[3:18]","start":1699517727675,"end":1699517727877,"title":"src\/test\/java\/api[3:18] 13:45:27.675-13:45:27.877 Get single user details","className":"failed"},{"id":4,"group":1,"content":"src\/test\/java\/api[4:25]","start":1699517727889,"end":1699517728500,"title":"src\/test\/java\/api[4:25] 13:45:27.889-13:45:28.500 Get user details-user not found"},{"id":5,"group":1,"content":"src\/test\/java\/api[5:31]","start":1699517728508,"end":1699517728622,"title":"src\/test\/java\/api[5:31] 13:45:28.508-13:45:28.622 Get user print the response"},{"id":6,"group":1,"content":"src\/test\/java\/api[6:37]","start":1699517728628,"end":1699517729624,"title":"src\/test\/java\/api[6:37] 13:45:28.628-13:45:29.624 Update user details","className":"failed"},{"id":7,"group":1,"content":"src\/test\/java\/api[7:46]","start":1699517729652,"end":1699517730163,"title":"src\/test\/java\/api[7:46] 13:45:29.652-13:45:30.163 Get user details and print the name using json"},{"id":8,"group":1,"content":"src\/test\/java\/api[8:56]","start":1699517730173,"end":1699517730465,"title":"src\/test\/java\/api[8:56] 13:45:30.173-13:45:30.465 Get user details and verify user email using json path"},{"id":9,"group":1,"content":"src\/test\/java\/api[9:66]","start":1699517730471,"end":1699517730712,"title":"src\/test\/java\/api[9:66] 13:45:30.471-13:45:30.712 Get user details and verify.If response is invalid get-Accepted is not equal","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
